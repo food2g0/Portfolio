@@ -1,5 +1,6 @@
 import React from 'react'
-import { Code2, Briefcase, MapPin } from 'lucide-react'
+import { Briefcase, MapPin } from 'lucide-react'
+import myPhoto from '../../assets/my-photo.jpg'
 
 const About = () => {
   return (
@@ -17,12 +18,9 @@ const About = () => {
 
         <div className='grid md:grid-cols-2 gap-12 items-center'>
           {/* Left side - Image/Avatar */}
-          <div className='relative'>
-            <div className='absolute inset-0 bg-gradient-to-r from-emerald-600/20 to-emerald-400/20 rounded-xl blur-xl'></div>
-            <div className='relative bg-gradient-to-br from-emerald-500/10 to-emerald-600/5 border border-emerald-500/30 rounded-xl p-8 backdrop-blur-sm'>
-              <div className='aspect-square bg-emerald-500/20 rounded-lg flex items-center justify-center border border-emerald-500/30'>
-                <Code2 size={120} className='text-emerald-400' />
-              </div>
+          <div className='relative flex justify-center'>
+            <div className='relative w-96 h-96 bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 border-2 border-emerald-500/40 rounded-2xl p-2 backdrop-blur-sm shadow-2xl'>
+              <img src={myPhoto} alt="My photo" className='w-full h-full rounded-lg object-contain' />
             </div>
           </div>
 
@@ -64,7 +62,7 @@ const About = () => {
               </div>
               <div className='flex items-center gap-3'>
                 <MapPin className='text-emerald-400' size={20} />
-                <span className='text-gray-300'>Tambunan, Malaysia</span>
+                <span className='text-gray-300'>Makati, Philippines</span>
               </div>
             </div>
           </div>
