@@ -35,7 +35,8 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             mkdir -p "${{ secrets.DEPLOY_PATH }}"
-            find "${{ secrets.DEPLOY_PATH }}" -mindepth 1 -delete
+            mkdir -p "${{ secrets.DEPLOY_PATH }}/_tmp"
+            find "${{ secrets.DEPLOY_PATH }}" -mindepth 1 -not -path "${{ secrets.DEPLOY_PATH }}/_tmp*" -delete
 
       - name: Upload built files
         uses: appleboy/scp-action@v0.1.7
@@ -44,6 +45,16 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
-          source: dist/*
-          target: ${{ secrets.DEPLOY_PATH }}
-          strip_components: 1
+          source: dist/
+          target: ${{ secrets.DEPLOY_PATH }}/_tmp
+
+      - name: Move files to deploy path
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cp -r "${{ secrets.DEPLOY_PATH }}/_tmp/dist/." "${{ secrets.DEPLOY_PATH }}/"
+            rm -rf "${{ secrets.DEPLOY_PATH }}/_tmp"
