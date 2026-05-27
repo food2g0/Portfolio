@@ -1,6 +1,6 @@
 import React from 'react'
 import { Briefcase, MapPin } from 'lucide-react'
-import myPhoto from '../../assets/my-photo.jpg'
+import myPhoto from '../../assets/my-photo.png'
 
 const About = () => {
   return (
@@ -20,7 +20,7 @@ const About = () => {
           {/* Left side - Image/Avatar */}
           <div className='relative flex justify-center'>
             <div className='relative w-96 h-96 bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 border-2 border-emerald-500/40 rounded-2xl p-2 backdrop-blur-sm shadow-2xl'>
-              <img src={myPhoto} alt="My photo" className='w-full h-full rounded-lg object-contain' />
+              <img src={myPhoto} alt="My photo" className='w-full h-full rounded-xl object-cover object-center' />
             </div>
           </div>
 

@@ -2,7 +2,7 @@ export const projects = [
   {
     id: 1,
     title: 'Operation Report System',
-    description: 'A comprehensive web application that helps businesses in Tambunan generate and manage daily operational reports and cash counts. Streamlines reporting processes with real-time data synchronization and secure database management.',
+    description: 'A comprehensive desktop application that helps businesses in generating and managing daily operational reports and cash counts. Streamlines reporting processes with real-time data synchronization and secure database management.',
     category: 'Web Apps',
     technologies: ['Python', 'React', 'MySQL',],
     image: 'https://via.placeholder.com/400x300?text=Operation+Report',
